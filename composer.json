@@ -1,0 +1,23 @@
+{
+	"name": "devture/synology-chat",
+	"type": "library",
+	"description": "A library to communicate with the Synology Chat API",
+	"keywords": ["synology", "chat", "api", "webhooks"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Slavi Pantaleev",
+			"email": "slavi@devture.com"
+		}
+	],
+	"require": {
+		"php": ">=7.1",
+		"guzzlehttp/guzzle": "6.3.*",
+		"symfony/property-access": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Devture\\Component\\SynologyChat\\": ""
+		}
+	}
+}
