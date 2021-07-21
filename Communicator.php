@@ -1,9 +1,6 @@
 <?php
 namespace Devture\Component\SynologyChat;
 
-use function GuzzleHttp\Psr7\build_query;
-use function GuzzleHttp\Psr7\stream_for;
-
 class Communicator {
 
 	/**
@@ -23,7 +20,7 @@ class Communicator {
 	public function postFormUrlEncoded(string $url, array $bodyParams): RawApiResponse {
 		$request = new \GuzzleHttp\Psr7\Request('POST', $url);
 		$request = $request->withHeader('Content-Type', 'application/x-www-form-urlencoded');
-		$request = $request->withBody(stream_for(build_query($bodyParams)));
+		$request = $request->withBody(\GuzzleHttp\Psr7\Utils::streamFor(\GuzzleHttp\Psr7\Query::build($bodyParams)));
 		return $this->sendRequest($request);
 	}
 
